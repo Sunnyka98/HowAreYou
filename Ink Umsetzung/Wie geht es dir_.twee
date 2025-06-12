@@ -1,0 +1,429 @@
+:: StoryTitle
+Wie geht es dir?
+
+
+:: StoryData
+{
+  "ifid": "6D6053D2-0D35-44E2-A485-9E19D3809BE4",
+  "format": "Snowman",
+  "format-version": "2.0.2",
+  "start": "Menü",
+  "tag-colors": {
+    "Ende": "red",
+    "LoopEnd": "orange",
+    "Charakter": "purple",
+    "Abgeschlossen": "yellow",
+    "Mädchen": "blue"
+  },
+  "zoom": 1
+}
+
+
+:: Charaktere [Charakter] {"position":"400,175","size":"100,100"}
+[[Das kleine Mädchen|Maedchen]]<br />
+[[Der Jogger|Jogger]] <br/>
+[[Die Mutter|Mutter]] <br/>
+[[Der Obdachtloser|Obdachloser]]
+[[Der Hundebesitzer|Hundebesitzer]]
+
+[[Zurück|Menü]]
+
+
+:: Ende {"position":"325,550","size":"100,100"}
+<!--Hier wird die Suche beendet, vielleicht kann man den Personen mit einem Abschließenden Rat helfen.--> 
+
+Deine Reise hat bis jetzt <%= s.tage %> Tage gebraucht. 
+Möchtest du Helfen oder willst du deine Reise beenden?     
+Ja    
+Nein
+
+
+:: HJFragen {"position":"1400,900","size":"100,100"}
+Ein guter Mann, der nicht aufgibt und mittlerweile sehr glücklich scheint.
+[[HundebesitzerEnde]]
+
+
+:: HMaFragen {"position":"1525,900","size":"100,100"}
+Das Mädchen führt manchmal seinen Hund aus. Sie trägt immer etwas über ihre Unterarme egal welches Wetter. 
+[[HundebesitzerEnde]]
+
+
+:: HMuFragen {"position":"1275,900","size":"100,100"}
+Seine Nachbarin hat manchmal die Herrausforderung ihre Kinder zu beruihgen. 
+[[HundebesitzerEnde]]
+
+
+:: HOFragen {"position":"1650,900","size":"100,100"}
+Der Obdachlose ist ein guter Mann und hat nicht verdient auf der Straße zu wohnen. 
+[[HundebesitzerEnde]]
+
+
+:: Hundebesitzer [Charakter Abgeschlossen] {"position":"275,300","size":"100,100"}
+Aussehen: Ein großer älterer Mann mit einem Schäferhund. In den Augen sieht man, dass er schon viel erlebt hat. 
+
+
+- Mädchen: Sie geht oft mit seinem Hund raus. Er hat in seiner Wohnung viele Fotografien
+- Jogger: Der Jogger hat mit dem Hundebesitzer ab und zu trainiert. Er hat eine gute Disziplin
+- Mutter: Der Hundebesitzer ist ihr Nachbar über ihn kann sie nur sagen das er ruhig und höfflich ist. Nachts hört man ihn manchmal. 
+- Obdachlosen: Er hat den Hundebesitzer das erste mal im Lazarett gesehen. 
+
+Hundebesitzer: Er ist ein Veteran, nachdem er Soldat war, hat er als Kriegsreporter gearbeitet. Die Bilder verfolgen ihn immernoch, und er findet keine neue Aufgabe auf die er sich konzentrieren kann
+
+Infos von:
+1. Jogger
+2. Mädchen 
+3. Obdachloser
+4. Mutter
+
+[[Charaktere]] 
+
+
+:: HundebesitzerAussehen {"position":"1025,900","size":"100,100"}
+Ein großer älterer Mann mit einem Schäferhund. In den Augen sieht man, dass er schon viel erlebt hat. 
+
+[[HundebesitzerEnde]]
+
+
+:: HundebesitzerEnde {"position":"1350,1025","size":"100,100"}
+[[Warten|JoggerInit]]
+[[Nach Hause gehen|StartAgain]]
+
+
+:: HundebesitzerFragen {"position":"1150,900","size":"100,100"}
+ Er ist ein Veteran, nachdem er Soldat war, hat er als Kriegsreporter gearbeitet. Die Bilder verfolgen ihn immernoch, und er findet keine neue Aufgabe auf die er sich konzentrieren kann
+[[HundebesitzerEnde]]
+
+
+:: HundebesitzerInit {"position":"1375,775","size":"100,100"}
+Ein Mann mit einem Hund kommt auf dich zu. Er schaut dich an, rümpft die Nase und setzt sich auf die Bank. Er streichelt seinen Hund und lässt ihn mit dem Befehl "Los" von der Leine. 
+
+[[Aufstehen und gehen|StartAgain]]
+[[Den Mann anschauen|HundebesitzerAussehen]]
+<% switch(s.wissen ) { case 4: %> [[Nach Obdachlosen fragen|HOFragen]]   
+<% case 3:  %> [[Nach Mutter fragen|HMuFragen]]    
+<% case 2: %> [[Nach Jogger fragen|HJFragen]]
+<% case 1: %>  [[Nach Mädchen fragen|HMaFragen]]
+<% default: %>[["Wie geht es Ihnen?"|HundebesitzerFragen]]      
+<%}%>
+
+
+
+:: JHFragen {"position":"1925,650","size":"100,100"}
+Der Jogger hat mit dem Hundebesitzer ab und zu trainiert. Er hat eine gute Disziplin
+[[JoggerEnde]] 
+
+
+:: JMaFragen {"position":"2300,650","size":"100,100"}
+Das Mädchen ist seine Nachbarin. Er hört öfter das sich gestritten wird. 
+[[JoggerEnde]] 
+
+
+:: JMuFragen {"position":"2050,650","size":"100,100"}
+Er trifft sie regelmäßig im Supermarkt. Sie scheint gut mit ihren Töchtern zurecht zukommen. 
+[[JoggerEnde]] 
+
+
+:: JOFragen {"position":"2175,650","size":"100,100"}
+ Er kann kennt den Obdochlosen nicht 
+[[JoggerEnde]] 
+
+
+:: Jogger [Charakter] {"position":"275,175","size":"100,100"}
+Aussehen: Ein mittelgroßer Mann in einem sportlichen Outfit. Auf seinen Beinen sind eine Narben zu finden. 
+
+Hundebesitzer: Ein guter Mann, der nicht aufgibt und mittlerweile sehr glücklich scheint.
+Mutter: Sie trifft ihn regelmäßig im Supermarkt. Und sie hat ihn ein paar mal im Fernsehn erkannt, bei irgendeinem Sport. 
+Obdachloser: Er kennt den Jogger jetzt schon lange Zeit. Er hat ihn fallen sehen, aber auch das er sich wieder nach oben kämpft. 
+Mädchen: Sie weiß das der Jogger ein Unfall hatte und lange Zeit war hat er auf Krücken verbracht. 
+
+Jogger: Ein ehemaliger Spitzensportler, der sich gefunden hat glücklich ist, nachdem er durch einen Unfall fast die Fähigkeit zu laufen verloren hätte. 
+
+Infos von: 
+1. Mutter 
+2. Hundebesitzer 
+3. Mädchen 
+4. Obdachloser
+
+[[Charaktere]] 
+
+
+:: JoggerAussehen {"position":"1675,650","size":"100,100"}
+[[JoggerEnde]]
+
+
+:: JoggerEnde {"position":"2000,825","size":"100,100"}
+[[Warten|MutterInit]]
+[[Nach Hause gehen|StartAgain]]
+
+
+:: JoggerFragen {"position":"1800,650","size":"100,100"}
+ Ein ehemaliger Spitzensportler, der sich gefunden hat glücklich ist, nachdem er durch einen Unfall fast die Fähigkeit zu laufen verloren hätte. 
+[[JoggerEnde]] 
+
+
+:: JoggerInit {"position":"2000,500","size":"100,100"}
+
+[[Aufstehen und gehen|StartAgain]]
+[[Jogger beobachten|JoggerAussehen]]
+<% switch(s.wissen ) { case 4: %> [[Nach Obdachlosen fragen|JOFragen]]   
+<% case 3:  %> [[Nach Mutter fragen|JMuFragen]]    
+<% case 2: %> [[Nach Jogger fragen|JHFragen]]
+<% case 1: %>  [[Nach Mädchen fragen|JMaFragen]]
+<% default: %>[["Wie geht es Ihnen?"|JoggerFragen]]      
+<%}%>
+
+
+:: MHFragen {"position":"600,725","size":"100,100"}
+<% s.dogowner++; %>
+"Hier kam gestern ein älterer Mann mit einem Schäferhund vorbei. Kennst du ihn?", fragst du. Das Mädchen schaut dich misstrauisch an, sagt dann aber: "Ja, ich kenn ihn. Ich geh manchmal mit seinem Hund Gassi." Sie schaut kurz in den Himmel und erzählt dann weiter: "Ich hab ihn an Silvester kurz getroffen. Er sah aus als wenn er ganz weit weg war, sein Hund hat an dem Tag gepfipst. Erst als sein Hund angefangen hat zu bellen ist er wieder ins Hier und Jetzt zurückgekommen." Sie schaut traurig nach unten. "Ich muss jetzt gehen, vielleicht bis morgen", sagt sie, steht auf und geht. 
+
+[[MaedchenEnde]] 
+
+
+Sie geht oft mit seinem Hund raus. Er hat in seiner Wohnung viele Fotografien
+
+
+:: MJFragen {"position":"975,725","size":"100,100"}
+Sie weiß das der Jogger ein Unfall hatte und lange Zeit war hat er auf Krücken verbracht. 
+[[MaedchenEnde]] 
+
+
+:: MMFragen {"position":"850,725","size":"100,100"}
+Ihre beste Freunding ist die älteste Tochter der Mutter
+[[MaedchenEnde]] 
+
+
+:: MOFragen {"position":"725,725","size":"100,100"}
+Der Obdachlose ist nett. 
+[[MaedchenEnde]]
+
+
+:: Maedchen [Charakter Abgeschlossen] {"position":"400,50","size":"100,100"}
+Aussehen: Ein Mädchen im sommerlichen Kleid. Ihre Unterarme sind mit Stoff bedeckt. Sie ist 14 Jahre alt und kann nie ihre Hände still halten. 
+
+- Obdachlosen: Er trifft das Mädchen öfter in der Einkaufspassage. Sie gibt ihm manchmal etwas zu naschen ab. 
+- Hundebesitzer: Das Mädchen führt manchmal seinen Hund aus. Sie trägt immer etwas über ihre Unterarme egal welches Wetter. 
+- Jogger: Das Mädchen ist seine Nachbarin. Er hört öfter das sich gestritten wird. 
+- Mutter: Das Mädchen ist mit ihrer Älteren in einer Klasse und erzählt, das das Mädchen wohl nicht gut behandelt wird
+- Wissen 5 von dem Mädchen: Sie hat genug vertrauen gefasst um dir von dem Drahtseilakt zwischen Schule und Zuhause zu erzählen. 
+
+Infos von: 
+1. Hundebesitzer
+2. Obdachloser 
+3. Mutter 
+4. Jogger 
+
+[[Charaktere]]
+
+
+:: MaedchenAussehen [Mädchen] {"position":"350,725","size":"100,100"}
+Sie wippt mit den Beinen und knetet ihre Hände, als wenn sie etwas erzählen will. Sie hat ein sommerliches Kleid an.
+
+Nach ein paar Minuten steht sie auf und geht.    
+[[MaedchenEnde]] 
+
+
+:: MaedchenEnde {"position":"675,900","size":"100,100"}
+[[Warten|HundebesitzerInit]]    
+[[Gehen|StartAgain]] 
+
+
+:: MeadchenFragen [Mädchen] {"position":"475,725","size":"100,100"}
+<%console.log(s.wissen);%>
+<%
+switch ( s.wissen ){
+	case 5: 
+    	s.girl = 6;
+        %> Sie hat genug vertrauen gefasst um dir von dem Drahtseilakt zwischen Schule und Zuhause zu erzählen. <%
+   		break;
+    case 4: 
+    case 3: 
+    case 2:
+    case 1:
+    default: 
+%>
+Sie dreht sich zu dir und schaut dich mit großen Augen an. "Spring nicht in Pfützen, bei der du den Boden nicht siehst", 
+sagt sie, steht auf und läuft davon.
+<% } %>
+
+[[MaedchenEnde]]
+
+
+:: Menü {"position":"625,225","size":"100,100"}
+<%
+s.wissen = 0;
+s.tage = 0; 
+s.girl = 0;
+s.dogowner = 0;
+%>
+
+# Klappentext
+Du gehst in den Park und stolperst in eine Suche nach dem eigenen Befinden.    
+[[Starte Geschichte|Start]]     
+[[Charakterübersicht|Charaktere]]
+
+
+:: MuHFragen {"position":"2325,150","size":"100,100"}
+Der Hundebesitzer ist ihr Nachbar über ihn kann sie nur sagen das er ruhig und höfflich ist. Nachts hört man ihn manchmal. 
+[[MutterEnde]] 
+
+
+:: MuJFragen {"position":"2200,150","size":"100,100"}
+Sie trifft ihn regelmäßig im Supermarkt. Und sie hat ihn ein paar mal im Fernsehn erkannt, bei irgendeinem Sport. 
+[[MutterEnde]] 
+
+
+:: MuMaFragen {"position":"2075,150","size":"100,100"}
+Das Mädchen ist mit ihrer Älteren in einer Klasse und erzählt, das das Mädchen wohl nicht gut behandelt wird
+[[MutterEnde]] 
+
+
+:: MuOFragen {"position":"1950,150","size":"100,100"}
+ Der Obdachlose passt auf, an Halloween hat er einmal einen Brand verhindert
+[[MutterEnde]] 
+
+
+:: Mutter [Charakter] {"position":"525,50","size":"100,100"}
+Aussehen: 
+
+Jogger: Er trifft sie regelmäßig im Supermarkt. Sie scheint gut mit ihren Töchtern zurecht zukommen. 
+Obdachloser: Er hat den Notdienst gerufen als sie in seine Gasse gestolpert kam
+Hundebesitzer: Seine Nachbarin hat manchmal die Herrausforderung ihre Kinder zu beruihgen. 
+Mädchen: Ihre beste Freunding ist die älteste Tochter der Mutter. 
+Mutter: Sie hat ihre erste Tochter als Minderjährige bekommen, nicht davon gewusst bis die Wehen eingesetzt hatte.
+
+Infos von: 
+1. Obdachloser 
+2. Jogger
+3. Hundebesitzer 
+4. Mädchen
+
+[[Charaktere]]
+
+
+:: MutterAussehen {"position":"1700,150","size":"100,100"}
+[[MutterEnde]]
+
+
+:: MutterEnde {"position":"2000,300","size":"100,100"}
+[[Warten|ObdachloserInit]]
+[[Nach Hause gehen|StartAgain]]
+
+
+:: MutterFragen {"position":"1825,150","size":"100,100"}
+Sie hat ihre erste Tochter als Minderjährige bekommen, nicht davon gewusst bis die Wehen eingesetzt hatte.
+[[MutterEnde]] 
+
+
+:: MutterInit {"position":"2025,25","size":"100,100"}
+[[Aufstehen und gehen|StartAgain]]
+[[Mutter beobachten|MutterAussehen]]
+<% switch(s.wissen ) { case 4: %> [[Nach Jogger fragen|MuJFragen]]  
+<% case 3:  %> [[Nach Obdachlosen fragen|MuOFragen]] 
+<% case 2: %> [[Nach Mädchen fragen|MuMaFragen]]
+<% case 1: %>  [[Nach Hundebesitzer fragen|MuHFragen]]    
+<% default: %>[["Wie geht es Ihnen?"|MutterFragen]]      
+<%}%>
+
+
+:: OHFragen {"position":"1075,150","size":"100,100"}
+ Er hat den Hundebesitzer das erste mal im Lazarett gesehen. 
+[[ObdachloserEnde]] 
+
+
+:: OJFragen {"position":"1450,150","size":"100,100"}
+Er kennt den Jogger jetzt schon lange Zeit. Er hat ihn fallen sehen, aber auch das er sich wieder nach oben kämpft. 
+[[ObdachloserEnde]]
+
+
+:: OMaFragen {"position":"1325,150","size":"100,100"}
+Er trifft das Mädchen öfter in der Einkaufspassage. Sie gibt ihm manchmal etwas zu naschen ab. 
+[[ObdachloserEnde]] 
+
+
+:: OMuFragen {"position":"1200,150","size":"100,100"}
+Er hat den Notdienst gerufen als sie in seine Gasse gestolpert kam
+[[ObdachloserEnde]] 
+
+
+:: ObdachlosenFragen {"position":"950,150","size":"100,100"}
+Er verlor sein Heim bei einem Brand, hat seitdem sich durchgeschlagen, hat die Welt erkundet mit allem sein Hab und Gut. 
+[[ObdachloserEnde]] 
+
+
+:: Obdachloser [Charakter] {"position":"275,50","size":"100,100"}
+Aussehen: 
+
+- Mädchen: Der Obdachlose ist nett. 
+- Jogger: Er kann kennt den Obdochlosen nicht 
+- Mutter: Der Obdachlose passt auf, an Halloween hat er einmal einen Brand verhindert 
+- Hundebesitzer: Der Obdachlose ist ein guter Mann und hat nicht verdient auf der Straße zu wohnen. 
+- Obdachtlosen: Er verlor sein Heim bei einem Brand, hat seitdem sich durchgeschlagen, hat die Welt erkundet mit allem sein Hab und Gut. 
+
+
+Infos von: 
+1. Mädchen 
+2. Mutter
+3. Jogger 
+4. Hundebesitzer
+
+[[Charaktere]] 
+
+
+:: ObdachloserAussehen {"position":"825,150","size":"100,100"}
+[[ObdachloserEnde]] 
+
+
+:: ObdachloserEnde {"position":"1125,275","size":"100,100"}
+[[Nach Hause gehen|StartAgain]]
+
+
+:: ObdachloserInit {"position":"1125,25","size":"100,100"}
+[[Aufstehen und gehen|StartAgain]]
+[[Obdachlosen beobachten|ObdachloserAussehen]]
+<% switch(s.wissen ) { case 4: %> [[Nach Mutter fragen|OMuFragen]]   
+<% case 3:  %> [[Nach Mädchen fragen|OMaFragen]]    
+<% case 2: %> [[Nach Hundebesitzer fragen|OHFragen]]
+<% case 1: %>  [[Nach Jogger fragen|OJFragen]]
+<% default: %>[["Wie geht es Ihnen?"|ObdachlosenFragen]]      
+<%}%>
+
+
+:: Start {"position":"625,375","size":"100,100"}
+Wie jeden Nachmittag gehst du in den Park nahe deiner Wohnung. 
+
+In der Mitte des Parks steht ein Springbrunnen mit einigen Bänken drum herrum. In der Nähe ein Spielplatz mit zwei Schaukeln und ein Kletterturm. 
+Du setzt dich hin und beobachtest das Treiben. 
+
+[[Jemand kommt näher|initMaedchen]]
+
+
+
+:: StartAgain [LoopEnd] {"position":"1175,475","size":"100,100"}
+<% s.tage++; s.wissen++;%>
+Du beschliest das du genug Sonne für heute getankt hast und stehst auf. Auf dem Weg nach Hause verarbeitest du die Eindrücke des Tages und legst dich zuhause ins Bett. Gute Nacht.
+[[Nächsten Tag starten|Start]]
+
+
+<!--Wenn die Geschichten erzählt sind sollte hier statt zum Start zum Ende geleitet werden-->
+[[Nächsten Tag starten|Ende]]
+
+
+:: initMaedchen [Mädchen] {"position":"700,600","size":"100,100"}
+Ein Mädchen, vielleicht 14 Jahre alt, kommt auf dich zu und setzt sich neben dich. 
+
+[[Aufstehen und gehen|StartAgain]]<br />
+[[Das Mädchen beobachten|MaedchenAussehen]] <br/>
+<% switch(s.wissen ) { case 4: %> [[Nach Mutter fragen|MMFragen]]    
+<% case 3:  %>[[Nach Jogger fragen|MJFragen]]    
+<% case 2: %> [[Nach Hundebestizer fragen|MHFragen]]    
+<% case 1: %> [[Nach Obdachlosen fragen|MOFragen]]    
+<% default: %>[["Wie geht es dir?", fragst du.|MeadchenFragen]]      
+<%}%>
+
+
+:: StoryScript [script]
+$(window).on('sm.story.started', function(event, eventObject) {
+  // window.story
+  console.log(eventObject.story);
+});

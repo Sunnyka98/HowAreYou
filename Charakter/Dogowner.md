@@ -1,4 +1,24 @@
-# HUndebesitzer
+# Hundebesitzer
+
+## Hintergrund
+
+- Ehemaliger Sanitäter mit Suchhund im Krieg, später Kriegsreporter
+- In Rente geschickt, fühlt sich seitdem nutzlos.
+- Erinnerungen an Kriegserlebnisse begleitet ihn ständig
+  
+## Persönlichkeit
+
+- Warmherzig zu Bekannten, loyal, aber mürrisch gegenüber Fremden
+- Innerlich zerrissen zwischne Pflichtbewusstsein und der Suche nach neuer Bedeutung.
+
+## Konflikte
+
+Kämpft mit dem Gefühl, "nichts mehr beitragen zu können"
+
+## Gameplay
+
+- Spieler interagiert mit dem Hund und löst Erinnerungsrätsel (z. B. durch Trigger wie Gerüche oder Fotos).
+- Zusammenfügen von zerissenen Bildern oder das Restaurieren alter Erinnerungen.
 
 ## Unausgearbeitetes
 

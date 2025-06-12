@@ -1,55 +1,22 @@
-== initGirl == 
-Ein Mädchen, vielleicht 14 Jahre alt, kommt auf dich zu und setzt sich neben dich. 
-
-{days > 0:
-+ {mother >= 4} Kennst du die Mutter die Manchmal hier vorbei kommt? ->askGM
-+ {runner >= 3 } Kennst du den Jogger der manchmal hier vorbeikommt? ->askGR
-+ {dogowner >= 2} Kennst du den Hundebesitzer der hier manchmal vorbei kommt? -> askGD
-+ {homeless >=1 } Kennst du den Obdachlosen, der hier manchmal ist? -> askGH
+== girl
+{days: 
+- 0: ->girlFirstLoop
 }
+->DONE
 
-+ Aufstehen und gehen
-    -> startAgain
-+ Das Mädchen beobachten
-    -> girlLook
-+ Wie geht es dir?
-    ->askGirl
+== girlFirstLoop
+~ loops = loops + 1
+Du kommst an eine Bank auf der ein junges Mädchen sitzt. Ihr Gesicht ist in ein zerfleddertes Notizbuch vertieft, in dem sie hektisch blättert. Gelegentlich hält sie inne, starrt auf eine Seite, murmelt etwas Unverständliches und schaut sich um, als suche sie etwas. Ihre Stirn ist gerunzelt, ihre Finger trommeln nervös auf den Buchdeckel. 
 
+    + Du gehst auf sie zu und fragst: "Geht es dir gut?" 
+        -> girlFirstLoop.positive
+    + Du gehst an der Bank vorbei, ohne sie anzusprechen. 
+        -> girlFirstLoop.negative
+->DONE
+= positive
+Sie schaut auf, ihre Augen treffen deine. Einen Moment lang wirkt sie überrascht, doch dann verengen sich ihre Augen misstrauisch. "Spring nicht in eine Pfütze, dessen Boden du nicht siehst", sagt sie mit einem unerwartet ernsten Tonfall. Ehe du nachfragen kannst, senkt sie den Kopf und konzentiert sich wieder auf ihr Notizbuch, ohne dich weiter zu beachten. 
+-> loop
 
-
-= girlLook
-Sie wippt mit den Beinen und knetet ihre Hände, als wenn sie etwas erzählen will. Sie hat ein sommerliches Kleid an.
-Nach ein paar Minuten steht sie auf und geht. 
-    ->girlEnd
-    
-= askGirl
-{ girl <= 5: 
-    Sie dreht sich zu dir und schaut dich mit großen Augen an. "Spring nicht in Pfützen, bei der du den Boden nicht siehst."
-}
-{girl > 6: 
-    TODO Sie hat genug vertrauen gefasst um dir von dem Drahtseilakt zwischen Schule und Zuhause zu erzählen. 
-}
-->girlEnd
-
-= askGM
-TODO Frage Mädchen nach Mutter
-->girlEnd
-
-= askGR 
-TODO Frage Mädchen nach Jogger 
--> girlEnd
-
-= askGD
-TODO Frage Mädchen nach Hundebesitzer 
-->girlEnd
-
-= askGH
-TODO Frage Mädchen nach Obdachlosen
--> girlEnd
-    
-= girlEnd
-Sie steht auf und läuft davon. 
-+ Die Sonne genießen 
-    -> initDogowner
-+ [Nach Hause gehen]
-    -> startAgain
+= negative
+    Während du auf ihrer Höhe bist, hörst du sie leise murmeln: "Wo ist das bloß?" Der Klang ihrer Stimme ist angespannt, fast verzweifelt. Du blickst kurz zurück, doch sie ist bereits wieder in ihr Notizbuch vertieft. 
+-> loop

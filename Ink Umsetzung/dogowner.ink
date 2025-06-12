@@ -1,54 +1,26 @@
-== initDogowner
-Ein Mann mit einem Hund kommt auf dich zu. Er schaut dich an, rümpft die Nase und setzt sich auf die Bank. Er streichelt seinen Hund und lässt ihn mit dem Befehl "Los" von der Leine. 
-+ Aufstehen und gehen
-    ->startAgain
-+ Den Mann anschauen 
-    -> dogownerLook 
-+ Wie geht es ihnen? 
-    -> askDogowner
-
-{days > 1: 
-+ {homeless >= 4} Kennst du den Obdachlosen der manchmal hier vorbeikomm? -> askDH
-+ { runner >= 2} Kennst du den Jogger der hier manchmal vorbeikommt -> askDR
-+ { mother >= 3 } Kennst du die Mutter die manchmal -> askDM
+== dogowner
+Nachdem du die Bank und das Mädchen hinter dir gelassen hast, spürst du die leichten Unebenheiten des Kieswegens unter deinen Füßen. Die dichten Baumkronen über dir filtern das Sonnenlicht, sodass nur wenige Strahlen den Boden erreichen. 
+{days: 
+- 0: ->dogownerFirstLoop
 }
+->DONE
 
-+ { girl >= 1 } Kennst du das Mädchen, was manchmal hier vorbei kommt? -> askDG
-
-= dogownerLook
-Ein großer älterer Mann mit einem Schäferhund. In den Augen sieht man, dass er schon viel erlebt hat. 
--> dogownerEnd
-
-= askDogowner
- TODO Den Hundebesitzer fragen 
- {dogowner <= 5: 
- "Es geht sie nichts an, wie es mir geht." 
- }
- {dogowner > 5: 
- TODO Aufrichtige Aussage 
- }
--> dogownerEnd
-
-= askDH
-TODO Hundebesitzer nach Obdachlosen fragen 
--> dogownerEnd
-
-= askDM
-TODO Hundebesitzer nach Mutter fragen 
--> dogownerEnd
-
-= askDR
-TODO Hundebesitzer nach Jogger fragen 
--> dogownerEnd
-
-= askDG
-TODO Hundebesitzer nach Mädchen fragen 
--> dogownerEnd
-
-
-= dogownerEnd
-Er ruft seinen Hund und geht. 
-+ Du lehnst dich zurück und beobachtest die Umgebung. 
-    -> initRunner
-+ [Du gehst nach Hause]
-    -> startAgain
+== dogownerFirstLoop
+!! DogOwnerFirstLoop
+Plötzlich hörst du ein tiefes Bellen. Der Ton schwingt in der stillen Luft nach, gefolgt von einem rhythmischen Klacken - das Geräusch einer Hundeleine, die gegen einen Stein schlägt.
+Du schaust nach vorn und siehst in der Ferne einen Mann stehen. Er hält die Leine eines Hundes in der Hand, der so eifrig schnüffelt und immer wieder aufgeregt den Kopf hebt. Der Mann hingegen wirkt still und regungslos, fast so als gehöre er nicht in diese lebendige Szene. 
++ Den Mann ansperechen 
+    ->dogownerFirstLoop.positive
++ Den Mann ignorieren 
+    ->dogownerFirstLoop.negative
+= positive
+!! DogOwner FirstLoop positive
+Du entscheidest dich, auf ihn zuzugehen. "Ein beeindruckender Hund", sagst du, wäkrend du einen kurzen Blick zu dem Tier wirfst. 
+Der Mann hebt den Kopf und sieht dich ruhigem, aber prüfendem Blick an. "Das ist er," antwortet er kurz, seine Stimme ruhig und kontrolliert.
+Ein Moment der Stille entsteht, bevor er hinzufügt: "Er hat schon viel gesehen." Seine Hand ruht auf dem Kopf des Hundes, der aufmerksam bleibt, aber entspannt wirkt. "Wir sollten weiter," murmelt er, fast mehr zu sich selbst als zu dir. 
++ "Warum wirkt er so aufmerksam?" 
+    
+->DONE
+= negative 
+!! DogOwner FirstLoop negative
+->DONE
